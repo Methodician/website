@@ -2,10 +2,10 @@ import * as configcat from "configcat-js-ssr";
 import { getOrSetCookieId } from "$lib/components/segment.svelte";
 
 const configCatClient = configcat.getClient(
-  "OSzbCCd5YESN3ZtcqYIpkA/n8MSGCfKLUC2OcnKX0i2ZQ",
+  import.meta.env.VITE_CONFIGCAT_KEY,
   configcat.PollingMode.LazyLoad,
   {
-    cacheTimeToLiveSeconds: 3 * 60,
+    cacheTimeToLiveSeconds: 3 * 60, // => 3 minutes
     requestTimeoutMs: 2000,
     logger: configcat.createConsoleLogger(configcat.LogLevel.Error),
   }
