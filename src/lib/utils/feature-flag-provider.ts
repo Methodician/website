@@ -2,7 +2,7 @@ import * as configcat from "configcat-js-ssr";
 import { getOrSetCookieId } from "$lib/components/segment.svelte";
 
 const configCatClient = configcat.getClient(
-  process.env.CONFIG_CAT_SDK_KEY,
+  "OSzbCCd5YESN3ZtcqYIpkA/n8MSGCfKLUC2OcnKX0i2ZQ",
   configcat.PollingMode.AutoPoll,
   {
     pollIntervalSeconds: 3 * 60,
