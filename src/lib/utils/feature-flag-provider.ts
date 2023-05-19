@@ -2,7 +2,14 @@ import * as configcat from "configcat-js-ssr";
 import { getOrSetCookieId } from "$lib/components/segment.svelte";
 
 const configCatClient = configcat.getClient(
-  "OSzbCCd5YESN3ZtcqYIpkA/n8MSGCfKLUC2OcnKX0i2ZQ"
+  "OSzbCCd5YESN3ZtcqYIpkA/n8MSGCfKLUC2OcnKX0i2ZQ",
+  configcat.PollingMode.AutoPoll,
+  {
+    pollIntervalSeconds: 3 * 60,
+    maxInitWaitTimeSeconds: 2,
+    requestTimeoutMs: 2000,
+    logger: configcat.createConsoleLogger(configcat.LogLevel.Error),
+  }
 );
 const userId = getOrSetCookieId();
 
