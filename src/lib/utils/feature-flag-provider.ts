@@ -3,10 +3,9 @@ import { getOrSetCookieId } from "$lib/components/segment.svelte";
 
 const configCatClient = configcat.getClient(
   "OSzbCCd5YESN3ZtcqYIpkA/n8MSGCfKLUC2OcnKX0i2ZQ",
-  configcat.PollingMode.AutoPoll,
+  configcat.PollingMode.LazyLoad,
   {
-    pollIntervalSeconds: 3 * 60,
-    maxInitWaitTimeSeconds: 2,
+    cacheTimeToLiveSeconds: 3 * 60,
     requestTimeoutMs: 2000,
     logger: configcat.createConsoleLogger(configcat.LogLevel.Error),
   }
