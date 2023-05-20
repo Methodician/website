@@ -207,6 +207,12 @@ tasks:
 
 Gitpod starts all your `tasks` inside separate `bash` (`$SHELL`) shells. Gitpod can only assert the exit status of the shell process of a task. Normally `bash` or other shells don't halt on a failure of a command unless you explicitly ask it to. `bash` only inherits the last exit status of a script run with it before it's own `exit`. Hence Gitpod can't determine if all of your commands inside the `init` task succeeded. To have that effect, you can put `set -e;` on top of task shell-commands and wrap your whole task-script with `()` to configure that particular task shell to halt and immediately exit with an error code for a failure of any command. This can be specially helpful for prebuilds (i.e `init` tasks)
 
+### Test your configuration
+
+Once you have made changes to your gitpod configuration, you can test them out to ensure they behave as expected. To do this, open the command pallete (Ctrl/Cmd + Shift + P) and type `Gitpod: Validate Configuration` and press enter. This will open a new tab running your environment with the new configuration so you can make sure it works as expected before committing.
+
+If you aren't happy with the results, simply close the new tab and terminate the task in the terminal called "Validate the workspace configuration", then make any changes, and run it again. You can repeat this process until you are happy with the results.
+
 ### Missing examples?
 
 We'd love to hear from you if you have specific questions or ideas for additional examples. Please click the following link to open a pre-configured GitHub issue: [Ask for a new Start Task example](https://github.com/gitpod-io/website/issues/new?title=[Start+Task+Example]&labels=documentation).
