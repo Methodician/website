@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { logosAnimated } from "$lib/contents/home";
+  import { equipmentShare, logosAnimated } from "$lib/contents/home";
   import { onMount } from "svelte";
 
   let sequence = [];
@@ -31,6 +31,8 @@
       }, 5600);
     });
   });
+
+  export let title = "Trusted by 1M+ developers";
 </script>
 
 <style lang="postcss">
@@ -57,13 +59,16 @@
 </style>
 
 <section class="mt-small md:mt-x-large">
-  <h2 class="h5 text-center">Trusted by 900K+ developers</h2>
+  <h2 class="h5 text-center">{title}</h2>
   <div class="flex justify-center gap-xx-small sm:gap-20 mt-large sm:mt-20">
     {#each sequence as i}
       <div class="logos-wrapper h-5 w-24 sm:h-8 sm:w-32">
         <svelte:component this={logosAnimated[i].logo} class="hide to-top" />
         {#if logosAnimated[i + 1] !== undefined}
-          <svelte:component this={logosAnimated[i + 1].logo} />
+          <svelte:component
+            this={logosAnimated[i + 1].logo}
+            class={logosAnimated[i + 1] == equipmentShare ? "scale-125" : ""}
+          />
         {/if}
         {#if logosAnimated[i + 2] !== undefined}
           <svelte:component

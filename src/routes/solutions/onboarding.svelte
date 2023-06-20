@@ -6,7 +6,7 @@
   import { onboardFeatures } from "$lib/contents/home/features";
   import Quotes from "$lib/components/quotes.svelte";
   import { quotes } from "$lib/contents/customers";
-  import Features from "$lib/components/features.svelte";
+  import SectionFeatures from "$lib/components/section-features.svelte";
   import OpenGraph from "$lib/components/open-graph.svelte";
   import Section from "$lib/components/section.svelte";
   import Quote from "$lib/components/solutions/quote.svelte";
@@ -24,33 +24,35 @@
   }}
 />
 
-<div class="flex flex-col lg:flex-row sm:mt-x-large">
-  <div class="items-center justify-between max-w-7xl mx-auto mt-small">
-    <h2 class="h1 !mb-micro md:!mb-x-small max-w-xl">
-      Onboard developers to new projects quickly
+<div class="flex flex-col lg:flex-row lg:pt-x-large">
+  <div
+    class="items-center justify-between max-w-7xl py-micro md:py-xx-large mx-auto my-macro"
+  >
+    <h2 class="h1 !mb-micro md:!mb-x-small max-w-2xl">
+      Onboarding made simple
     </h2>
-    <p class="text-large max-w-xl">
-      Get new team members onboarded and ready to code in less than one hour.
+    <p class="text-large max-w-lg mb-xx-small">
+      Get developers ready-to-code quickly and easily, from anywhere in the
+      world, on any machine.
     </p>
   </div>
   <Quote
-    quote="It takes an hour at most, with training, to get developers coding."
+    quote="
+    You can either spend 3 days of your life setting them up and teaching them how the environment works, or you can give them a button and say ‘click here’.&nbsp;"
     author={{
-      name: "Cooper Benson",
-      jobTitle: "Staff Platform Engineer at Quizlet",
+      name: "Josep Jaume",
+      jobTitle: "Senior Director of Developer Experience at Factorial",
     }}
-    svgClazz="h-14 w-12"
+    svgClazz="h-10 w-32"
   />
 </div>
 <div class="mt-xxx-large mb-x-large sm:mb-0">
-  <AnimatedLogos />
+  <AnimatedLogos title="Speeding up 1M+ developers at teams like" />
 </div>
-<Section id="new-hire-to-coding-in-under-an-hour">
-  <h3 class="text-center text-3xl sm:text-5xl font-bold">
-    New hire to coding in under an hour
-  </h3>
-  <Features features={onboardFeatures} class="!mt-x-large" />
-</Section>
+<SectionFeatures
+  title="Productive teams on day one"
+  features={onboardFeatures}
+/>
 <Section>
   <Quotes {quotes} class="max-w-7xl mx-auto" />
 </Section>

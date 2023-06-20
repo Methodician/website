@@ -2,7 +2,6 @@
   import { ides } from "$lib/contents/home";
   import Section from "../section.svelte";
   import IdeSwitcher from "./ide-switcher.svelte";
-  import LinkButton from "$lib/components/ui-library/link-button";
   let selectedIde = "vscode";
   let ideType = "browser";
   let toggleChecked = false;
@@ -57,24 +56,5 @@
         />
       </div>
     </div>
-  </div>
-</Section>
-
-<Section
-  class="translate-y-6 md:translate-y-[5.5rem] items-center mx-auto w-11/12"
->
-  <h3 class="text-left sm:text-center text-2xl sm:text-5xl font-bold">
-    What's a cloud development environment?
-  </h3>
-  <p
-    class="text-left sm:text-center text-lg sm:text-2xl my-micro mx-auto max-w-3xl"
-  >
-    CDEs are coding workspaces that allow developers to write, test and deploy
-    their applications entirely in the cloud.
-  </p>
-  <div class="text-left sm:text-center m-auto mb-x-small">
-    <LinkButton variant="gray" size="large" href="/cde"
-      >Learn more about CDEs</LinkButton
-    >
   </div>
 </Section>

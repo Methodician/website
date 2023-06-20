@@ -1,6 +1,7 @@
 ---
 section: workspaces
 title: Workspace Lifecycle
+description: Gitpod brings a new way to think about your development environment. Rather than a single local environment that you keep up-to-date, with Gitpod you can have as many workspaces as you need. This page describes the lifecycle of a Gitpod workspace.
 ---
 
 <script context="module">
@@ -21,6 +22,7 @@ The state of the workspace is indicated by the color of the workspace indicator.
 4. 🔴 **Stopped** - Workspace no longer accessible. File system preserved for restart.
 
 > **Important:**
+>
 > - Only files in the `/workspace` directory are kept between state transitions.
 > - Any changes made to `/workspace` from a [custom Dockerfile](/docs/configure/workspaces/workspace-image#use-a-custom-dockerfile) will be overwritten/overlaid by a mount.
 
@@ -79,6 +81,10 @@ By default, workspaces stop following 30 minutes without user input (e.g. keystr
 **Current workspace** - You can extend the inactivity timeout of their current workspace using the `gp timeout set` command from the [Gitpod CLI](/docs/references/gitpod-cli) (installed in all gitpod workspaces by default), through the Command Palette in VS Code, or the Backend Control Center in JetBrains Gateway. Extending the workspace inactivity timeout only applies to the currently running workspace.
 
 **Default** - You can set a default workspace inactivity timeout for all new workspaces opened via the [preferences page](https://gitpod.io/preferences). The timeout default cannot currently be set by an organization owner.
+
+### Workspace lifetime
+
+Workspace have a maximum lifetime. This means that workspaces will be shut down after this period even if the inactivity timeout has not been reached yet. Currently the lifetime of a workspace if you are a free plan user is 8 hours and 36 hours if you are on a paid plan.
 
 ### Editor or IDE Disconnect
 

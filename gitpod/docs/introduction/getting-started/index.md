@@ -1,24 +1,12 @@
 ---
 section: getting-started
 title: Getting started
+description: Learn how to start your first Gitpod workspace for free, set up a gitpod.yml configuration file and enable Prebuilds.
 ---
 
 <script context="module">
   export const prerender = true;
 </script>
-
-<script lang="ts">
-  import OpenGraph from "$lib/components/open-graph.svelte";
-</script>
-
-<OpenGraph
-data={{
-    description:
-      "Learn how to start your first workspace, set up a gitpod.yml configuration file and enable Prebuilds. Get started for free.",
-    title: "Getting started with Gitpod",
-    keywords: "get started, fast, free",
-  }}
-/>
 
 # Getting started
 
@@ -86,7 +74,7 @@ For more, see the [.gitpod.yml reference](/docs/references/gitpod-yml) and [conf
 
 ### A gitpod.yml example
 
-```yaml
+```yml
 image: gitpod/workspace-full
 
 # Commands that will run on workspace start

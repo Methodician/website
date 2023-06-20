@@ -1,6 +1,7 @@
 ---
 section: authentication
 title: Authentication
+description: Gitpod allows you to work with any public or private repository on GitLab, GitHub, and Bitbucket.
 ---
 
 <script context="module">
@@ -29,7 +30,7 @@ Run `gp init` on your terminal or manually create a file called `.gitpod.yml`
 
 1. Put the following line in your `.gitpod.yml`:
 
-```yaml
+```yml
 image:
   file: .gitpod.Dockerfile
 ```

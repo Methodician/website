@@ -1,6 +1,7 @@
 ---
 section: workspaces
 title: Workspace Image
+description: Learn how to use different workspaces images available in Gitpod. The workspace image defines the base environment from which your workspaces are created. Or, you can create and use your own custom workspace images.
 ---
 
 <script context="module">
@@ -21,7 +22,7 @@ If this image does not include the tools you need for your project, you can prov
 
 You can define a public Docker image in your `.gitpod.yml` file with the following configuration:
 
-```yaml
+```yml
 image: node:buster
 ```
 
@@ -49,7 +50,7 @@ For example, if the registry is `docker.io`, the username is `foo` and the passw
 
 This option provides you with the most flexibility. Start by adding the following configuration in your `.gitpod.yml` file:
 
-```yaml
+```yml
 image:
   file: .gitpod.Dockerfile
 ```

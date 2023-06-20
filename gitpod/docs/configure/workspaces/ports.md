@@ -1,6 +1,7 @@
 ---
 section: workspaces
 title: Ports
+description: Gitpod supports exposing HTTP ports via a custom domain that is associated with your workspace. You can also use port forwarding, so that you do not need to update your application if it already references the localhost hostname.
 ---
 
 <script context="module">
@@ -63,7 +64,7 @@ The property `onOpen` configures port opening behaviors:
 
 **Example**: Open a browser tab for port 8080
 
-```yaml
+```yml
 ports:
   - name: Web App
     description: The main application web server
@@ -155,7 +156,7 @@ All port configurations can be applied to ranges as well as single ports.
 
 Ports won't be shown in VS Code's <Action>PORTS</Action> view or in the [Gitpod CLI](/docs/references/gitpod-cli) until they are opened.
 
-```yaml
+```yml
 ports:
   - port: 3000-8999
     onOpen: ignore
@@ -207,7 +208,6 @@ Using [SSH command-line](/docs/references/ides-and-editors/command-line) access 
 
 `ssh -L 3000:localhost:3000 <workspace-ssh-connection>`
 
-
 ### Local reverse port forwarding via SSH
 
 If you have a port open in your local machine but you want to access it inside Gitpod via SSH, you could do the following:
@@ -231,7 +231,6 @@ ssh 'some-special-ws-id@gitpod.io' -N -R 5000:localhost:5000
 
 - Now run `curl -L http://localhost:9000` **inside your Gitpod workspace**, which will hit the port 5000 **on your local machine's** HTTP server.
 
-
 ### Cross-Origin Resource Sharing (CORS)
 
 If you start a server on a private port, let's say 5001, and want to connect to it from your web application which runs on a different port, e.g. 3000, you have to configure your requests. This is necessary because Gitpod requires credentials for private ports. Without credentials, Gitpod cannot verify that the request is made by an authorized user.
@@ -243,3 +242,35 @@ To make this work, your web application's `fetch` request needs to have the `cre
 **Configure your server**
 
 In your server (the one on port 5001 in the above example), you have to configure the response to include the `Access-Control-Allow-Credentials` header. Without it, your browser rejects the response and you see CORS errors in the browser console.
+
+## Port protocols
+
+By default ports running in the workspace are assumed to be HTTP. You can configure your port to use HTTPS by updating the `.gitpod.yml` or using the `gp ports protocol` command.
+
+> **Note:** Updating your `.gitpod.yml` is the preferred approach to using the `gp` CLI, as the `.gitpod.yml` is declarative and ensures workspaces are created repeatably.
+
+### Configuring the port protocol in `.gitpod.yml`
+
+Update the `ports` definition block in `.gitpod.yml` to add the `protocol`.
+
+```yml
+ports:
+  - name: Frontend Application
+    port: 3000
+    protocol: https
+```
+
+See [gitpod.yml](/docs/references/gitpod-yml) for more.
+
+### Configuring the protocol with `gp`
+
+Dynamically change the protocol of a port using the `gp ports protocol` command.
+
+By default, ports are set as HTTP.
+
+For example:
+
+- `gp ports protocol 3000:https` will change port `3000` to use `https`.
+- `gp ports protocol 3000:http` will change port `3000` to use `http`.
+
+See [Gitpod CLI](/docs/references/gitpod-cli) for more.

@@ -1,6 +1,7 @@
 ---
 section: projects
 title: Environment Variables
+description: Learn how to set and use environment variables for your Gitpod projects.
 ---
 
 <script context="module">
@@ -133,7 +134,7 @@ You can set environment variables for a Gitpod `task` terminal by setting the `e
 
 ### Using the `env` keyword
 
-```yaml
+```yml
 tasks:
   - name: Example of setting an environment variable for a task terminal
     env:
@@ -145,7 +146,7 @@ Note: The values should be a static string or integer, you can't refer to an exi
 
 ### Using the task SHELL
 
-```yaml
+```yml
 tasks:
   - name: Example of starting yarn with a custom environment variable set
     command: |

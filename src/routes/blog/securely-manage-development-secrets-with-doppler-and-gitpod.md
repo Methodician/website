@@ -63,7 +63,7 @@ But some secrets don’t fit well within the environment variable paradigm. Thes
 
 For reference, here’s how I’ve set up my ngrok account (with a configuration file which must live within my home directory) with Doppler to have a static URL for testing my OAuth 2.0 flow:
 
-```yaml
+```yml
 # in ngrok.yml
 authtoken: { { .NGROK_AUTH_TOKEN } }
 region: us
@@ -99,7 +99,7 @@ In my case, I’ve scoped my Doppler token to only be injected in my specific re
 
 Once this is done, I can then set a project and environment with a `doppler.yaml` file within my repository. I’ve done the bare minimum in my repository for a compliant Doppler configuration:
 
-```yaml
+```yml
 setup:
   project: fastapi-openid-connect-playground
   config: dev
@@ -117,7 +117,7 @@ Alternatively, continuing the example above I can inject my OAuth Client secret,
 doppler setup --no-interactive && doppler run --mount ../client_secret.json --mount-template oauth2_client_secret.json  -- doppler run --mount-template jwks_secret --mount ../jwks_secret -- doppler run -- uvicorn main:app --reload
 ```
 
-Again, note the `--` used to separate our commands between the template mounting and actual execution of our binary. As each of these is written as a separate task within our `.gitpod.yaml`, we’ll need to again do the `doppler setup –no-interactive` to set our configuration in the user’s home directory, just in case our task gets executed first.
+Again, note the `--` used to separate our commands between the template mounting and actual execution of our binary. As each of these is written as a separate task within our `.gitpod.yml`, we’ll need to again do the `doppler setup –no-interactive` to set our configuration in the user’s home directory, just in case our task gets executed first.
 
 Because our secret gets injected at run time, **if we need to rotate our secrets, it's as simple as setting the new value in the Doppler UI.**
 

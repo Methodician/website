@@ -37,6 +37,8 @@
   import Cookies from "js-cookie";
   import { cookies } from "$lib/constants";
   import { key as starsKey } from "$lib/components/main-nav/github-stars.svelte";
+  import "$lib/assets/global.css";
+  import "$lib/assets/styles.scss";
 
   export let bannerData: BannerData;
 
@@ -101,7 +103,9 @@
   <LayoutMain>
     <slot />
   </LayoutMain>
-  <Footer />
+  {#if $page.url.pathname !== "/extension-activation"}
+    <Footer />
+  {/if}
 </LayoutRoot>
 <CookieConsent />
 <Segment />

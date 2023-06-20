@@ -57,7 +57,7 @@ RUN cd /tmp && pip install -r requirements.txt
 
 After using the standard Python image, setting up one environment variable, and installing the requirements (in this case just the `dbt-bigquery` package), dbt is now ready to be set up. Next, the `.gitpod.yml` contains commands that are executed after the Dockerfile has been processed. Each object in the tasks section creates a new terminal in the development environment. In our example, a terminal named `connect` executes three commands to complete and test the dbt configuration:
 
-```yaml title=".gitpod.yml"
+```yml title=".gitpod.yml"
 image:
   file: .gitpod.Dockerfile
 
@@ -74,7 +74,7 @@ Following the reference to the custom Docker image, the Gitpod environment varia
 
 The `dbt debug` command tests the connection with the database. When executing this, dbt searches for the credentials to connect with the database in the `profiles.yml` file:
 
-```yaml title="profiles.yml"
+```yml title="profiles.yml"
 default:
   target: dev
   outputs:
@@ -98,7 +98,7 @@ Gitpod integrates with well-established IDEs in order to provide developers the 
 
 Complementary to this degree of freedom, teams can standardize the tools available to their developers by adding extensions to the section of the respective IDE inside the `.gitpod.yml`:
 
-```yaml title=".gitpod.yml"
+```yml title=".gitpod.yml"
 # These installations are installed for each workspace running in VS Code
 vscode:
   extensions:
@@ -130,4 +130,4 @@ You can use Gitpod for free for up to 50 hours a month and onboard your team at 
 
 ## Video Demo
 
-<div style="position: relative; padding-bottom: 64.63195691202873%; height: 0;"><iframe src="https://www.loom.com/embed/803d19417e5a48ac8617e7c9582acf42?hide_owner=true&hide_title=true&hideEmbedTopBar=true" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<div style="position: relative; padding-bottom: 64.63195691202873%; height: 0;"><iframe class="rounded-md" src="https://www.loom.com/embed/803d19417e5a48ac8617e7c9582acf42?hide_owner=true&hide_title=true&hideEmbedTopBar=true" title="Gitpod Demo: DBT in Gitpod" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
